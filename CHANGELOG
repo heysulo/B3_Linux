@@ -1,0 +1,175 @@
+1.4.1 -> 1.5.0
+----
+A list of changed files is available after release here:
+github.com/BigBrotherBot/big-brother-bot/compare/v1.4.1...v1.5.0
+----
+- Support for CoD:BO
+- Introduction of the q3a abstractparser
+- Introduction of caching for rcon status requests (q3a based parsers)
+- Setup procedure improved (can read previous config and install database tables)
+- Moved sql files from docs folder to sql folder
+- Config section <messages> changed format (no longer uses %s but readable names instead)
+- Config section <plugins>: Plugin can start in a disabled state (disabled="Yes")
+- XLRstats plugin can now enable on minimum number of players online
+- many bugfixes and improvements
+
+1.4.0 -> 1.4.1
+----
+A list of changed files is available after release here:
+github.com/BigBrotherBot/big-brother-bot/compare/v1.4.0...v1.4.1
+----
+- Support for CoD:MW2 (for alteriw.net servers)
+- Rewrite of the frostbite code for MOH and BFBC2
+- Improvements to the MOH parser
+- Initial Event/Action support for CoD 5 (we need confirmation of cod5 admins that this works)
+- Several bugfixes and improvements
+
+
+1.3.3 -> 1.4.0
+----
+A list of changed files is available after release here:
+github.com/BigBrotherBot/big-brother-bot/compare/v1.3.3...v1.4.0
+----
+- Medal of Honor 2010 support
+- Opena Arena 0.8.1 support
+- Restart mode fixed (--restart)
+- Remote protocols SFTP and HTTP added
+- CoD parsers bugfixes
+- Xxlrstats plugin improvements
+- Updates to stats plugin
+
+
+1.3.2 -> 1.3.3
+----
+A list of changed files is available after release here:
+github.com/BigBrotherBot/big-brother-bot/compare/v1.3.2...v1.3.3
+----
+Maintenance release for bfbc2 parser:
+- Adapted to R16+ protocol
+- New events added to aid player gear monitoring
+- Fixed broken !unban
+- Better client authentication
+- Hitlocation, weapon and roundscounting now available for stats collecting
+
+
+1.3.1 -> 1.3.2
+----
+A list of changed files is available after release here:
+github.com/BigBrotherBot/big-brother-bot/compare/v1.3.1...v1.3.2
+----
+Maintenance release for bfbc2 parser.
+- Fixed bfbc2 package error for win32 standalone release.
+
+
+1.3.0 -> 1.3.1
+----
+A list of changed files is available after release here:
+github.com/BigBrotherBot/big-brother-bot/compare/v1.3.0...v1.3.1
+----
+Maintenance release for CoD series parsers.
+- Preventing invalid PB-id's on authentication
+
+1.2.1 -> 1.3.0
+----
+Over 100 files were changed (in almost 500 commits)! We strongly recommend updating the complete bot!
+Also make sure you check your saved config files for additions and changes!
+A list of changed files is available after release here:
+github.com/BigBrotherBot/big-brother-bot/compare/v1.2.1...v1.3.0
+----
+Upgrading:
+A number of commands were moved from the adminplugin to welcome and pingwatch plugin.
+This results in changes to the next config files:
+* plugin_admin.xml (some commands were removed)
+* plugin_welcome.xml (new command !greeting)
+* plugin_pingwatch.xml (new command !ci)
+If you're using xlrstats, make sure the database holding the xlrstats tables is upgraded:
+* new tables for xlrstats need to be created (run xlrstats.sql or xlrstats-update-to-v2.0.0.sql on the database!) 
+----
+- Setup procedure added. Initiated with option -s, --setup (can be overridden by -n, --nosetup option)
+- b3/plugins/censor.py: Fixed censor.py badname functionality.
+	(Also compatible with censorurt)
+- Total makeover of the complete cod parser series
+  * Introduced authentication queue
+  * fixed _regPlayer regexp
+  * fixed client synchronisation 
+  * Should now work good for servers with and without PB
+- Fixed minor bugs in cod5 parser
+- b3/parsers/iourt41.py: improve Urt slot bug workaround as it appears it can occur with slot num different than 0
+- B3 checks for updates on startup
+- Improvements to ftp functionality
+-	b3/tools/documentationBuilder.py: add a new feature to B3 : user
+	command documentation auto generation and update.  documentation can
+	be saved as a full html document, a html table snippet or xml
+	document.  the document can be either saved locally on disk or
+	uploaded to a FTP server.
+- b3/extplugins/xlrstats.py: 
+	Added history functionality and improved column update.  [!!]This
+	version needs new tables added. Run b3/docs/xlrstats.sql or
+	b3/docs/xlrstats-update-to-v2.0.0.sql prior to installation!
+- b3/plugins/admin.py:
+  Moved !ci to pingwatch plugin
+  Moved !greeting to welcome plugin
+  Removed redundant commands: about, groups, cmdlevel, newgroup, delgroup, editgroup
+-	[BETA addition] b3/parsers/smg.py, b3/parsers/smg11.py: PARSER smg is compatible
+	with SG pior 1.1. smg11 uses the new /tell command for private chat
+-	[BETA addition] b3/parsers/bfbc2: Parser for BattleField Bad Company 2 (R9 servers)
+----
+
+1.2.1
+----
+- B3 now supports connecting to Gameservers via an FTP connection. Read the manual for more details. (Python 2.6+ only!)
+- Small improvements to cod parser and cod4 parser
+- Added scripts for compiling wininstaller
+- Improvements to ioUrT41 parser
+- Improvements to publist, will not error on network or server downage
+- The console screen now shows startup messages and checks
+
+1.2.0
+----
+- Several Core enhancements!
+- A parser can now define game specific new penalty types that will be called by b3.admin.penalizeClient()
+- Fix custom penalty for censor plugin 
+- Fix !clear command that failed when a warning given by the bot was active
+- Load publist by default and added critical stop if admin plugin is not loaded
+- Plugins can specify that they do not require a config file
+- Fix default config file picking for plugins
+- Added action mechanism
+- If masked show masked level instead of real level
+- Warning Messages are now, by default, only sent to the warned player and the admin that sent the warning. This is a configurable option, in admin config.
+- Fixed !rebuild command for Call of Duty 4.
+- Punkbuster plugin now follows levels set in its configuration file.
+
+1.1.5 (not released)
+-----
+- Minor updates to CoD4 and CoD5 parsers
+- Added etpro parser (Enemy Territory with etpro mod installed - et does not support private messaging!)
+- Added Smoking Guns parser (Very limited engine, no PM's supported)
+- Minor change in login.py so it can be used for etpro
+- parser.py patched by 'arbscht' to support restarting
+- status.py fixed for masked levels
+
+1.1.4
+-----
+- Fixed CoD4 Parser
+- Added CoD5 Parser
+- Added sanitation code to status plugin
+- Added delay setting and fixed double welcoming to welcome plugin
+- Fixed MySQL reconnect for Error 2006: 'MySQL server has gone away'
+- In config.py, try to load ElementTree from elementtree, then retry from xml.etree or exit with an explicit message.
+- Multiple minor bugfixes 
+
+1.1.3
+-----
+- Added COD4 parser
+    - COD4 parser uses GUID instead of CID from the log files
+    - COD4 parser uses GUID in log files as PBID
+    - Does not use the team from a kill event if it's empty, instead relies on team from previous events - TK plugin works again!
+- Made !iamgod work automatically when there are no superadmins in the database, can be completely disabled by adding <set name="iamgod">none</set> to plugin_admin.xml
+- Fixed: getWarning errors had the text "getSpam" instead of "getWarning"
+- Added a replay log mode. Simply set the config to an old game log and server.replay to on in b3.xml. Only works for COD4 log files. Used to debug b3.
+- Fixed clients.py to save the last used ip. Fixes empty ip fields in clientrecords and the countryfilter plugin to work properly.
+- Added ioUrT41 parser (Urban Terror)
+- Added WoP parser (World of Padman)
+- Replaced xlrstats plugin with latest version 0.6.0
+- Replaced status.py with latest version.
+
