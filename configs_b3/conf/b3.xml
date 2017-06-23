@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Created by BigBrotherBot Config File Generator at http://config.bigbrotherbot.net (02 Jun 2017 - Fri 13:40:44 CEST)-->
+<configuration>
+  <settings name="b3">
+    <set name="bot_name">REID</set>
+    <set name="bot_prefix">^2UCSC ^1Bot ^7:</set>
+    <set name="time_format">%I:%M%p %Z %m/%d/%y</set>
+    <set name="time_zone">IST</set>
+    <set name="log_level">9</set>
+    <set name="logfile">/root/b3/BigBrotherBot-big-brother-bot-7abe8be/b3/conf/b3.log</set>
+    <set name="parser">cod4</set>
+    <set name="database">mysql://root:deanmsi@localhost/b3</set>
+  </settings>
+  <settings name="server">
+    <set name="rcon_password">reidbois</set>
+    <set name="port">28961</set>
+    <set name="public_ip">52.221.86.172</set>
+    <set name="rcon_ip">52.221.86.172</set>
+    <set name="delay">0.33</set>
+    <set name="lines_per_second">50</set>
+    <set name="punkbuster">on</set>
+    <set name="game_log">/root/cod4/Mods/pml220/games_mp_scrim.log</set>
+  </settings>
+  <settings name="autodoc">
+    <set name="type">html</set>
+    <set name="maxlevel">100</set>
+    <set name="destination">/root/b3/BigBrotherBot-big-brother-bot-7abe8be/b3/conf/b3_doc.html</set>
+  </settings>
+  <settings name="update">
+    <set name="channel">stable</set>
+  </settings>
+  <settings name="messages">
+    <set name="kicked_by">$clientname^7 was kicked by $adminname^7 $reason</set>
+    <set name="kicked">$clientname^7 was kicked $reason</set>
+    <set name="banned_by">$clientname^7 was banned by $adminname^7 $reason</set>
+    <set name="banned">$clientname^7 was banned $reason</set>
+    <set name="temp_banned_by">$clientname^7 was temp banned by $adminname^7 for $banduration^7 $reason</set>
+    <set name="temp_banned">$clientname^7 was temp banned for $banduration^7 $reason</set>
+    <set name="unbanned_by">$clientname^7 was un-banned by $adminname^7 $reason</set>
+    <set name="unbanned">$clientname^7 was un-banned $reason</set>
+  </settings>
+  <settings name="plugins">
+    <set name="external_dir">/root/b3/BigBrotherBot-big-brother-bot-7abe8be/b3/extplugins</set>
+  </settings>
+  <plugins>
+    <plugin name="xlrstats" config="/root/b3/BigBrotherBot-big-brother-bot-7abe8be/b3/extplugins/conf/xlrstats.xml"/>
+    <plugin name="admin" config="/root/b3/BigBrotherBot-big-brother-bot-7abe8be/b3/conf/plugin_admin.xml"/>
+    <plugin name="punkbuster" config="/root/b3/BigBrotherBot-big-brother-bot-7abe8be/b3/conf/plugin_punkbuster.xml"/>
+  </plugins>
+</configuration>
